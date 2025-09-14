@@ -52,7 +52,7 @@ CLOUDINARY_URL= (optional if using Cloudinary for images)
 VITE_API_URL=http://localhost:4000/api
 
 ## Deployment
-- Frontend (Vercel): https://your-frontend.vercel.app
+- Frontend (Vercel): https://posspoleassignment.netlify.app/
 - Backend (Render): https://posspole-assignment-round1-v2ry.onrender.com
 
 
