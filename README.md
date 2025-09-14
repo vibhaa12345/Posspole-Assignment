@@ -1,40 +1,67 @@
-# Fullstack Feedback App (Ready-to-run scaffold)
+# Feedback Management App
 
-This repo contains a minimal, ready-to-run full-stack web app:
-- **Backend**: Node.js + Express + Mongoose (MongoDB)
-- **Frontend**: React + Vite
+A full-stack MERN application for managing student feedback, profiles, and courses with role-based authentication and an admin dashboard.
 
-It includes:
-- Authentication (signup/login) with bcrypt + JWT
-- Student feedback submission (ratings + message)
-- Simple admin endpoints (seed creates admin)
-- Course management endpoints
-- CSV export endpoint for admin
+## Features
+- User authentication (JWT-based)
+- Student feedback submission & management
+- Profile editing with avatar upload & password change
+- Course management
+- Admin dashboard (view feedback, manage students, export CSV)
 
-## Quickstart (local)
+## Tech Stack
+- Frontend: React (Vite)
+- Backend: Node.js, Express
+- Database: MongoDB Atlas
+- Authentication: JWT + bcrypt
 
-1. Install Node and MongoDB locally (or use Docker Compose).
-2. Backend:
-   - `cd backend`
-   - copy `.env.example` to `.env` and set `MONGO_URI` and `JWT_SECRET`
-   - `npm install`
-   - Seed sample admin and courses: `node scripts/seed.js`
-   - `npm run dev` (requires nodemon) or `npm start`
-3. Frontend:
-   - `cd frontend`
-   - `npm install`
-   - create `.env` in frontend if you want: `VITE_API_URL=http://localhost:4000/api`
-   - `npm run dev`
-4. Open http://localhost:3000
+## Local Setup
 
-## Example admin login
-- email: `admin@school.test`
-- password: `Password@123`
+### Prerequisites
+- Node.js v18+
+- MongoDB (local or Atlas URI)
 
-## Notes
-- This is a scaffold focusing on the core features requested. You can extend:
-  - Profile update endpoints
-  - File uploads (Cloudinary) for avatar
-  - Better front-end UX and pagination
-  - Unit tests
+### 1. Clone repo
+git clone https://github.com/<vibhaa12345>/<Posspole-Assignment>.git
+cd <Posspole-Assignment>
+
+### 2. Backend setup
+cd backend
+cp .env.example .env
+# edit .env and set MONGO_URI (local or Atlas), JWT_SECRET
+npm install
+node scripts/seed.js   # seeds admin + sample courses
+npm run dev            # runs at http://localhost:4000
+
+### 3. Frontend setup
+cd ../frontend
+cp .env.example .env
+# edit .env and set VITE_API_URL=http://localhost:4000/api
+npm install
+npm run dev            # runs at http://localhost:3000
+
+## Environment Variables
+
+### Backend (.env)
+PORT=4000  
+MONGO_URI=mongodb+srv://dbuser:password@cluster0.xxxxx.mongodb.net/fullstack_db?retryWrites=true&w=majority  
+JWT_SECRET=your_jwt_secret  
+CLOUDINARY_URL= (optional if using Cloudinary for images)
+
+### Frontend (.env)
+VITE_API_URL=http://localhost:4000/api
+
+## Deployment
+- Frontend (Vercel): https://your-frontend.vercel.app
+- Backend (Render): https://posspole-assignment-round1-v2ry.onrender.com
+
+
+## Sample Admin Login
+email: admin@school.test  
+password: Password@123
+
+## Debugging Notes
+- If backend fails to connect, check `MONGO_URI` (Atlas user/IP whitelist).
+- If frontend cannot reach backend, update `VITE_API_URL` in frontend `.env`.
+- If avatars don’t upload in Render, use Cloudinary integration.
 
